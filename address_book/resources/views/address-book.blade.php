@@ -133,12 +133,14 @@
                     const d = {
                         name:     'Sulfikkar',
                         address:  'Kottayam District',
-                        email:    'emailworld@email.com',
-                        phone:    '9123456780'
+                        email:    'emailworld',
+                        phone:    '912345678'
                     }
                     for (i=0;i<10;i++){
                         const t = {...d};
                         t['name'] += i;
+                        t['email'] += i;
+                        t['phone'] += i;
                         contacts.push(t);
                     }
                     contacts.forEach(function(d, i) {
@@ -147,7 +149,7 @@
                                 <th scope="row">${i+1}</th>
                                 <td>${d.name}</td>
                                 <td>${d.address}</td>
-                                <td>${d.email}</td>
+                                <td>${d.email}@gmail.com</td>
                                 <td>${d.phone}</td>
                                 <td>
                                     <button type="button" data="${i}" class="btn btn-primary btn-sm view-btn">View</button>
