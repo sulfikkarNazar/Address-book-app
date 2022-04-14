@@ -128,28 +128,46 @@
             $(document).ready(function(){
                 var contacts = [];
                 var seletedIndex = [];
-                bindContactDataTOTable(null);
+
+                var myArray = [
+                    {'name':'Michael', 'address':'Kottayam District', 'email':'Michael@gmail.com','phone':'9633565656'},
+                    {'name':'Mila', 'address':'Kollam District', 'email':'Mila@gmail.com','phone':'96968865656'},
+                    {'name':'Paul', 'address':'Alappuzha District', 'email':'Paul@gmail.com','phone':'9696568656'},
+                    {'name':'Dennis', 'address':'Kottayam District', 'email':'Dennis@gmail.com','phone':'9696568656'},
+                    {'name':'Tim', 'address':'Tvm District', 'email':'Tim@gmail.com','phone':'9696565696'},
+                    {'name':'Erik', 'address':'Kottayam District', 'email':'Erik@gmail.com', 'phone':'9696565656'},
+                ]
+
+                $('#txtSearch').on('keyup', function() {
+                    var value = $(this).val();
+                    var data = filterTable(value, myArray);
+                    bindContactDataTOTable(data);
+                });
+
+                bindContactDataTOTable(myArray);
+
+                function filterTable(value, data) {
+                    var filteredData = [];
+                    for (var i=0; i<data.length; i++) {
+                        value = value.toLowerCase();
+                        var name = data[i].name.toLowerCase();
+
+                        if (name.includes(value)) {
+                            filteredData.push(data[i]);
+                        }
+                    }
+                    return filteredData;
+                }
+
                 function bindContactDataTOTable(data) {
-                    const userData = {
-                        name:     'Sulfikkar',
-                        address:  'Kottayam District',
-                        email:    'emailworld',
-                        phone:    '912345678'
-                    }
-                    for (i=0;i<10;i++){
-                        const tableData = {...userData};
-                        tableData['name'] += i;
-                        tableData['email'] += i;
-                        tableData['phone'] += i;
-                        contacts.push(tableData);
-                    }
-                    contacts.forEach(function(userData, i) {
+                    $('#contact-table-body').html('');
+                    data.forEach(function(userData, i) {
                         $('#contact-table-body').append(
                             `<tr>
                                 <th scope="row">${i+1}</th>
                                 <td>${userData.name}</td>
                                 <td>${userData.address}</td>
-                                <td>${userData.email}@gmail.com</td>
+                                <td>${userData.email}</td>
                                 <td>${userData.phone}</td>
                                 <td>
                                     <button type="button" data="${i}" class="btn btn-primary btn-sm view-btn">View</button>
