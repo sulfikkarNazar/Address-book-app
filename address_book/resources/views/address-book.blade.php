@@ -179,7 +179,7 @@
 
                 $('.view-btn').on('click', function(){
                     seletedIndex = $(this).attr('data');
-                    const userData = contacts[seletedIndex];
+                    const userData = myArray[seletedIndex];
                     $('#contact-name').text(userData.name);
                     $('#contact-address').text(userData.address);
                     $('#contact-email').text(userData.email);
