@@ -1,0 +1,34 @@
+.main-container {
+    margin: 2vh 5vw;
+    border: 1px solid #c5c5c5;
+    border-radius: 20px;
+    padding: 15px;
+    background-color: #f7ffff;
+}
+
+.contact-form .contact-item {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.contact-form .contact-item .item {
+    text-align: left;
+}
+
+.contact-form .contact-item .item.l-align {
+    width: 55%;
+}
+
+input.error {
+    border: 1px solid red;
+}
+
+label.error {
+    color: red;
+}
+
+.create-button {
+    float: right;
+}

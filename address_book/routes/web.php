@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('address-book');
 });
+
+// Route::view('address-book','address-book');
+
+
