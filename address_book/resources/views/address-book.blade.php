@@ -118,7 +118,7 @@
               </div>
             </div>
         </div>
-          
+
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
@@ -130,27 +130,27 @@
                 var seletedIndex = [];
                 bindContactDataTOTable(null);
                 function bindContactDataTOTable(data) {
-                    const d = {
+                    const userData = {
                         name:     'Sulfikkar',
                         address:  'Kottayam District',
                         email:    'emailworld',
                         phone:    '912345678'
                     }
                     for (i=0;i<10;i++){
-                        const t = {...d};
-                        t['name'] += i;
-                        t['email'] += i;
-                        t['phone'] += i;
-                        contacts.push(t);
+                        const tableData = {...userData};
+                        tableData['name'] += i;
+                        tableData['email'] += i;
+                        tableData['phone'] += i;
+                        contacts.push(tableData);
                     }
-                    contacts.forEach(function(d, i) {
+                    contacts.forEach(function(userData, i) {
                         $('#contact-table-body').append(
                             `<tr>
                                 <th scope="row">${i+1}</th>
-                                <td>${d.name}</td>
-                                <td>${d.address}</td>
-                                <td>${d.email}@gmail.com</td>
-                                <td>${d.phone}</td>
+                                <td>${userData.name}</td>
+                                <td>${userData.address}</td>
+                                <td>${userData.email}@gmail.com</td>
+                                <td>${userData.phone}</td>
                                 <td>
                                     <button type="button" data="${i}" class="btn btn-primary btn-sm view-btn">View</button>
                                 </td>
@@ -161,11 +161,11 @@
 
                 $('.view-btn').on('click', function(){
                     seletedIndex = $(this).attr('data');
-                    const d = contacts[seletedIndex];
-                    $('#contact-name').text(d.name);
-                    $('#contact-address').text(d.address);
-                    $('#contact-email').text(d.email);
-                    $('#contact-phone').text(d.phone);
+                    const userData = contacts[seletedIndex];
+                    $('#contact-name').text(userData.name);
+                    $('#contact-address').text(userData.address);
+                    $('#contact-email').text(userData.email);
+                    $('#contact-phone').text(userData.phone);
 
                     $('#viewModal').modal('show');
                 });
