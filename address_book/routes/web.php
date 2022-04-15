@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('address-book');
 });
 
-// Route::view('address-book','address-book');
-
-
+Route::get('fetch-contacts', [ContactsController::class, 'fetchContacts']);

@@ -10,6 +10,7 @@
     </head>
     <body>
         <section class="main-container">
+            <h2 class="text-center">ADDRESS BOOK</h2>
             <div class="row mb-4 mt-4">
                 <div class="form-group col-md-4 m-l-2">
                     <input class="form-control" id="txtSearch" name="txtSearch" placeholder="Search" aria-controls="example1" type="text" />
@@ -129,6 +130,19 @@
                 var contacts = [];
                 var seletedIndex = [];
 
+                fetchContacts();
+                function fetchContacts() {
+                    $.ajax({
+                        type: "GET",
+                        url: "/fetch-contacts",
+                        data: "data",
+                        dataType: "json",
+                        success: function (response) {
+                            bindContactDataTOTable(response.contacts);
+                        }
+                    });
+                }
+
                 var myArray = [
                     {'name':'Michael Wayne', 'address':'Kottayam District', 'email':'Michael@gmail.com','phone':'9633565656'},
                     {'name':'Mila Kunis', 'address':'Kollam District', 'email':'Mila@gmail.com','phone':'96968865656'},
@@ -144,7 +158,6 @@
                     bindContactDataTOTable(data);
                 });
 
-                bindContactDataTOTable(myArray);
 
                 function filterTable(value, data) {
                     var filteredData = [];
