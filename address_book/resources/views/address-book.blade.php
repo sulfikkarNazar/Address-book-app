@@ -121,21 +121,21 @@
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <script>
             $(document).ready(function(){
                 var contacts = [];
                 var seletedIndex = [];
 
                 var myArray = [
-                    {'name':'Michael', 'address':'Kottayam District', 'email':'Michael@gmail.com','phone':'9633565656'},
-                    {'name':'Mila', 'address':'Kollam District', 'email':'Mila@gmail.com','phone':'96968865656'},
-                    {'name':'Paul', 'address':'Alappuzha District', 'email':'Paul@gmail.com','phone':'9696568656'},
-                    {'name':'Dennis', 'address':'Kottayam District', 'email':'Dennis@gmail.com','phone':'9696568656'},
-                    {'name':'Tim', 'address':'Tvm District', 'email':'Tim@gmail.com','phone':'9696565696'},
-                    {'name':'Erik', 'address':'Kottayam District', 'email':'Erik@gmail.com', 'phone':'9696565656'},
+                    {'name':'Michael Wayne', 'address':'Kottayam District', 'email':'Michael@gmail.com','phone':'9633565656'},
+                    {'name':'Mila Kunis', 'address':'Kollam District', 'email':'Mila@gmail.com','phone':'96968865656'},
+                    {'name':'Paul Dano', 'address':'Alappuzha District', 'email':'Paul@gmail.com','phone':'9696568656'},
+                    {'name':'Dennis Williams', 'address':'Kottayam District', 'email':'Dennis@gmail.com','phone':'9696568656'},
+                    {'name':'Tim Drake', 'address':'Tvm District', 'email':'Tim@gmail.com','phone':'9696565696'},
+                    {'name':'Erik Bana', 'address':'Kottayam District', 'email':'Erik@gmail.com', 'phone':'9696565656'},
                 ]
 
                 $('#txtSearch').on('keyup', function() {
@@ -187,16 +187,17 @@
 
                     $('#viewModal').modal('show');
                 });
+            });
 
-                $('#contactForm').validate({ // initialize the plugin
+            $('#contactForm').validate({ // initialize the plugin
                     rules: {
                         name: {
                             required: true,
                             minlength: 5
                         },
-                        address: {
+                        address:  {
                             required: true,
-                            minlength: 5
+                            minlength: 10
                         },
                         email: {
                             required: true,
@@ -204,11 +205,29 @@
                         },
                         mobile: {
                             required: true,
-                            digits: true
+                            digits: true,
+                            minlength: 8
+                        }
+                    }, messages: {
+                        name: {
+                            required: "Please enter a name",
+                            minlength: "Minimum length 5"
+                        },
+                        address: {
+                            required: "Please enter your address",
+                            minlength: "Minimum length 10"
+                        },
+                        email: {
+                            required: "Please enter an email",
+                            email: "Email must be in 'example@email.com' format"
+                        },
+                        mobile: {
+                            required: "Please enter a phone number",
+                            digits: "Phone number cannot be characters",
+                            minlength: "Minimum length 8"
                         },
                     }
                 });
-            });
         </script>
     </body>
 </html>
