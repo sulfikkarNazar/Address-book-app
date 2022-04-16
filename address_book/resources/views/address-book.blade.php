@@ -76,11 +76,11 @@
                                 <input type="number" maxlength="11" name="mobile">
                             </div>
                         </div>
+                        <div class="mt-4">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
                 </div>
             </div>
             </div>
